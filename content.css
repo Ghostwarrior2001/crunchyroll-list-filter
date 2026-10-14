@@ -1,0 +1,69 @@
+/* Crunchyroll Listenfilter – Darstellung auf crunchyroll.com */
+
+.crlf-hidden {
+  display: none !important;
+}
+
+.crlf-pos {
+  position: relative;
+}
+
+.crlf-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 50;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 120ms ease-in-out;
+}
+
+.crlf-card:hover > .crlf-actions,
+.crlf-actions:focus-within {
+  opacity: 1;
+}
+
+.crlf-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font: 600 12px/1 system-ui, sans-serif;
+  color: #111;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.crlf-btn:hover {
+  background: #fff;
+}
+
+.crlf-btn-block:hover {
+  color: #fff;
+  background: #b3261e;
+}
+
+.crlf-btn-seen:hover {
+  color: #fff;
+  background: #2e7d32;
+}
+
+.crlf-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 50;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font: 700 11px/1 system-ui, sans-serif;
+  color: #111;
+  background: #ffd54f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.crlf-badge-muted {
+  color: #fff;
+  background: rgba(40, 40, 40, 0.9);
+}

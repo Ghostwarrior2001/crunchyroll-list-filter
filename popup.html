@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Listenfilter für Crunchyroll</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>Listenfilter für Crunchyroll</h1>
+
+    <div id="syncStatus" class="sync-status">
+      <span id="syncText">Lade …</span>
+      <button id="syncNow" type="button" title="Mit den Crunchylisten im Konto abgleichen">⟳ Sync</button>
+    </div>
+
+    <label class="option">
+      <input id="hideCompleted" type="checkbox">
+      <span>Fertig geschaute Folgen in „Schau weiter“ und Watchlist ausblenden</span>
+    </label>
+
+    <label class="option">
+      <input id="showButtons" type="checkbox">
+      <span>„✓ Gesehen“ / „✕“ auf Karten anzeigen</span>
+    </label>
+
+    <div class="tabs" role="tablist">
+      <button id="tab-seen" class="tab" role="tab" data-list="seen" type="button">
+        ✓ Gesehen <span class="count" data-count="seen"></span>
+      </button>
+      <button id="tab-blocked" class="tab" role="tab" data-list="blocked" type="button">
+        ✕ Uninteressant <span class="count" data-count="blocked"></span>
+      </button>
+    </div>
+
+    <p id="tabHint" class="hint tab-hint"></p>
+
+    <div class="row">
+      <input id="newTitle" type="text" placeholder="Serientitel, z. B. One Piece">
+      <button id="addTitle" type="button" title="Zur aktuellen Liste hinzufügen">+</button>
+    </div>
+    <p id="addHint" class="hint"></p>
+
+    <div class="row">
+      <input id="filter" type="search" placeholder="In der Liste suchen">
+    </div>
+
+    <ul id="entryList"></ul>
+
+    <details>
+      <summary>Sicherung (Export / Import)</summary>
+      <div class="row backup-row">
+        <button id="exportSettings" type="button">Exportieren</button>
+        <button id="importSettings" type="button">Importieren</button>
+      </div>
+      <textarea id="settingsJson" rows="5" spellcheck="false" placeholder="Hier erscheint die Sicherung oder hier JSON zum Import einfügen."></textarea>
+    </details>
+
+    <p class="hint">
+      Beide Listen liegen als private Crunchylisten in deinem Konto und gelten damit auf allen
+      Geräten. Änderungen werden beim nächsten geöffneten Crunchyroll-Tab übertragen.
+    </p>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
